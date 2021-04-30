@@ -28,3 +28,25 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+
+      - uses: actions/cache@v2
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Read .env
+      id: hugo-version
+      run: |
+        . ./.env
+        echo "::set-output name=HUGO_VERSION::${HUGO_VERSION}"
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
+        extended: true
