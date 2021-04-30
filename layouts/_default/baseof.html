@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+    <head>
+        {{ partial "head.html" . }}
+        <style>
+            div {
+                background: #f7fafc
+            }
+            div.content {
+                font-family: FancyTitleFont,"Source Han Serif SC","Source Han Serif CN","Noto Serif CJK SC",Songti SC,STSong,AR PL New Sung,AR PL SungtiL GB,NSimSun,SimSun,TW-Sung,WenQuanYi Bitmap Song,AR PL UMing CN,AR PL UMing HK,AR PL UMing TW,AR PL UMing TW MBE,PMingLiU,MingLiU,serif;
+            }
+
+            h1 {
+                color: #01513A
+            }
+
+            p {
+                color: #D77AB2
+            }
+        </style>
+    </head>
+
+    {{ block "body" . }}
+        <body>
+    {{ end }}
+    
+        <div class="container">
+            {{ partial "header.html" . }}
+
+            <div class="content">
+                {{ block "main" . }}{{ end }}
+            </div>
+
+            {{ block "footer" . }}
+                {{ partial "footer.html" . }}
+            {{ end }}
+        </div>
+
+        {{ partial "javascript.html" . }}
+    </body>
+</html>

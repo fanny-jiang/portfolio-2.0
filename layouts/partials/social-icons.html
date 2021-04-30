@@ -1,0 +1,7 @@
+{{ range . -}}
+    {{ if eq .name "email" }}
+        &nbsp; <a href="{{ .url }}" target="_self" rel="noopener" title="{{ .name | humanize }}">{{ partial "svg.html" . }}</a> &nbsp;
+        {{ else }}
+        &nbsp; <a href="{{ .url }}" target="_blank" rel="noopener" title="{{ .name | humanize }}">{{ partial "svg.html" . }}</a> &nbsp;
+    {{ end }}
+{{- end -}}
