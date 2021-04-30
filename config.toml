@@ -1,7 +1,7 @@
 baseURL = "https://fannyjiang.com"
 title   = "Fanny Jiang"
 languageCode = "en-us"
-theme = "hello-friend-ng"
+theme = "/themes/hello-friend-ng"
 
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
