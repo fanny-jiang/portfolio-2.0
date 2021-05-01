@@ -40,10 +40,10 @@ jobs:
         run: hugo --minify
 
       - name: Read .env
-      id: hugo-version
-      run: |
-        . ./.env
-        echo "::set-output name=HUGO_VERSION::${HUGO_VERSION}"
+        id: hugo-version
+        run: |
+          . ./.env
+          echo "::set-output name=HUGO_VERSION::${HUGO_VERSION}"
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
